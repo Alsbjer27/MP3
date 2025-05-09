@@ -1,14 +1,33 @@
-h = 0.1;
-t = linspace(0,3, 100);
-y0 = 1;
+tspan = [0,3];
+ybv = 1;
+n = 200;
 
-f = @(t,y) -y + sin(t);
+[t, y1] = odeEuler(@funkEx2, ybv, tspan, n);
+[t, y2] = RK2(@funkEx2, ybv, tspan, n);
+[t, y3] = RK4(@funkEx2, ybv, tspan, n);
 
-y = zeros(size(t));
-y(1) = y0;
 
-for n = 1:length(t)-1
-    k1 = h * f(t(n), y(n));
-    k2 = h * f(t(n) + h, y(n) + h*k1);
+% Jämför med analytisk metod
 
-end
+%%
+yex = (sin(t)/2) - (cos(t)/2) + (3/2)*exp(-t);
+
+semilogy(t,abs(yex-y1))
+hold on
+grid on 
+semilogy(t,abs(yex-y2))
+semilogy(t, abs(yex-y3))
+plot(t,yex)
+
+%%
+clear 
+tspan = [0,2];
+ybv = [1;-2];
+n = 50;
+
+[t,y] = odeEuler(@funkEx143a, ybv, tspan, n);
+
+plot(t,y)
+grid on
+
+
