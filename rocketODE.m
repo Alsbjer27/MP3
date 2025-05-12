@@ -3,13 +3,10 @@ function dydt = rocketODE(t, y)
     c = 0.35;
     g = 9.82;
 
-    km = 2400;
-
     v_x = y(2);
     v_y = y(4);
 
-    u_x = rocketControl(t);
-    u_y = rocketControl(t);
+    [u_x,u_y] = rocketControl(t);
 
     [m,mPrime] = mass(t);
 

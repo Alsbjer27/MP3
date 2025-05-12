@@ -1,15 +1,21 @@
 function theta = motorAngle(t)
-    if t < 38.2
-        theta = 3*pi/2;         % N
-    elseif t < 50
-        theta = pi;             % E
-    elseif t < 56.5
-        theta = 3*pi/2;         % N
-    elseif t < 62.2
-        theta = pi;             % E
-    elseif t < 100
-        theta = pi/4;           % SW
-    else
-        theta = 0;
-    end
+    t;
+
+if t < 5
+    theta = pi/2;
+elseif t < 8
+    theta = 5*pi/4;
+elseif t < 13
+    theta = 3*pi/2;
+elseif t < 17
+    theta = pi;
+elseif t < 20
+    theta = 5*pi/4;
+elseif t < 21.5
+    theta = pi/2;
+elseif t < 25 
+    theta = pi;
+else 
+    theta = 3*pi/2;
+end
 end

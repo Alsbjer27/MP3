@@ -5,7 +5,7 @@ load('bana-324.mat');
 plotTrack(portx,porty,ver,v0,a0)
 x = 160;  % x-position
 y = 0;    % y-position
-
+%%
 dx = v0 * cosd(a0); % begynnelse vinkel
 dy = v0 * sind(a0); 
 
@@ -13,7 +13,7 @@ ybv = [x; dx; y; dy]; % Totala begynnelsevillkor
 
 
 tspan = [0, 100]; % Tidspan
-n = 1000; % Iterationer
+n = 50; % Iterationer
 
   % Speed = sqrt(v_x^2 + v_y^2)
 
