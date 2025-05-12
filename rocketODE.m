@@ -1,4 +1,4 @@
-function dydt = rocketODE(t, y, v)
+function dydt = rocketODE(t, y)
 
     c = 0.35;
     g = 9.82;
@@ -8,17 +8,16 @@ function dydt = rocketODE(t, y, v)
     v_x = y(2);
     v_y = y(4);
 
-    u_x = km * cos(rocketControl(t));
-    u_y = km * sin(rocketControl(t));
+    u_x = rocketControl(t);
+    u_y = rocketControl(t);
 
     [m,mPrime] = mass(t);
+
+    v = sqrt(y(2)^2 + y(4)^2);
     
     % Derivata av v_x (acceleration i x-led)
     dv_xdt = - (c / m) * v * v_x + (mPrime / m) * u_x;
-    
-    % Derivata av y (hastighet i y-led)
-    dydt_1 = v_y;
-    
+   
     % Derivata av v_y (acceleration i y-led)
     dv_ydt = - (c / m) * v * v_y + (mPrime / m) * u_y - g;
     
