@@ -2,7 +2,7 @@ clc
 clear
 
 load('bana-324.mat');
-plotTrack(portx,porty,ver,v0,a0)
+%plotTrack(portx,porty,ver,v0,a0)
 x = 160;  % x-position
 y = 0;    % y-position
 
