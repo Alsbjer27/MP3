@@ -12,7 +12,7 @@ dy = v0 * sind(a0);
 ybv = [x; dx; y; dy]; % Totala begynnelsevillkor
 
 
-tspan = [0 100]; % Tidspan
+tspan = [0 64.3]; % Tidspan
 n = 1000; % Iterationer
 
 % Solve the system using RK4
