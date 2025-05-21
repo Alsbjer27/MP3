@@ -6,7 +6,7 @@ load('bana-324.mat');
 x = 160;  % x-position
 y = 0;    % y-position
 
-dx = v0 * cosd(a0); % begynnelse vinkel
+dx = v0 * cosd(a0); 
 dy = v0 * sind(a0); 
 
 ybv = [x; dx; y; dy]; % Totala begynnelsevillkor
@@ -32,25 +32,13 @@ title('Rakets rörelse genom slalombanan');
 grid on;
 axis equal;
 
+speed = sqrt(z(:,2).^2 + z(:,4).^2);  % beräkna farten
 
-
-
-
-
-
-
-% figure(2)
-% plot(z(:,1))
-% xlabel('Avstånd i x-led (m)')
-% ylabel('Hastighet (m/s)')
-% grid on
-% 
-% figure(3)
-% r_a = zeros(1,tspan(2)+1);
-% for t = tspan(1):tspan(2)
-%     r_a(1,t+1) = rad2deg(motorAngle(t));
-% end
-% plot(linspace(tspan(1),tspan(2),71))
-% grid on
-% ylabel('Vinkel (grader)')
-% xlabel('Tid (s)')
+figure;
+plot(z(:,1), speed, 'b', 'LineWidth', 1.5); hold on;
+plot(z(1,1), speed(1), 'go', 'MarkerFaceColor', 'g');
+xlabel('Avstånd x (m)')
+ylabel('Fart (m/s)')
+title('Fart över avstånd')
+legend('Fart (m/s) över avstånd', 'Begynnelsefart', 'Location', 'northeast')
+grid on

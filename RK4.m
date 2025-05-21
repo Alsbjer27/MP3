@@ -4,10 +4,11 @@ function [t,z] = RK4(f, ybv, tspan, n)
     t = linspace(a,b,n+1);
     z(:,1) = ybv;
     h = (b-a)/n;
+    disp(ybv)
 
     for i = 1:n
-        disp(['t = ', num2str(t(i))])
-        disp(['y = ', num2str(z(:, i)')])
+        %disp(['t = ', num2str(t(i))])
+        %disp(['y = ', num2str(z(:, i)')])
 
         k1 = f(t(i), z(:,i));
         k2 = f(t(i) + h/2, z(:,i) + h*k1/2);
