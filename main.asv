@@ -12,7 +12,7 @@ dy = v0 * sind(a0);
 ybv = [x; dx; y; dy]; % Totala begynnelsevillkor
 
 
-tspan = [0 64.3]; % Tidspan
+tspan = [0 64]; % Tidspan
 n = 1000; % Iterationer
 
 % Solve the system using RK4
@@ -21,7 +21,7 @@ n = 1000; % Iterationer
 
 figure(1);
 plotTrack(portx, porty, ver, v0, a0); hold on;
-plot(z(1,:), z(3,:), 'r-', 'LineWidth', 2.3);
+plot(z(1,:), z(3,:), 'r-', 'LineWidth', 1);
 hold off;
 xlabel('x-position (m)');
 ylabel('y-position (m)');
@@ -55,7 +55,7 @@ vy = z(4,:); % Hastighet i y-led för alla tidpunkter
 speed = sqrt(vx.^2 + vy.^2); % Total fart (notera .^2 för elementvis kvadrering)
 
 figure(3);
-plot(t, speed, 'LineWidth', 1.5);
+plot(t, speed);
 xlabel('Tid (s)');
 ylabel('Fart (m/s)');
 title('Raketens fart som funktion av tiden');
